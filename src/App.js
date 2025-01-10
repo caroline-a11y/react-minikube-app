@@ -1,16 +1,31 @@
 // src/App.js
-import React from 'react';
-import Header from './components/Header';
+import React, { useState, useEffect } from 'react';
+import { fetchBooks } from './api';
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const getBooks = async () => {
+      const data = await fetchBooks();
+      setBooks(data);
+    };
+    getBooks();
+  }, []);
+
   return (
     <div className="App">
-      <Header />
-      <main className="p-4">
-        <h2 className="text-xl">Main Content</h2>
-      </main>
+      <h1 className="text-3xl font-bold text-center my-4">Book List</h1>
+      <ul>
+        {books.map((book) => (
+          <li key={book.id} className="my-2">
+            {book.title} by {book.author}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default App;
+
