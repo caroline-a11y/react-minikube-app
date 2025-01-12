@@ -1,4 +1,4 @@
-// src/api.js
+// src/api.js or wherever fetchBooks is located
 export const fetchBooks = async () => {
   return [
     { id: 1, title: 'Creation Lake', author: 'Rachel Kushner', image: '/images/book1.jpeg' },
@@ -16,4 +16,5 @@ export const fetchBooks = async () => {
     { id: 13, title: 'The Book of Bill', author: 'Alex Hirsch', image: '/images/The-Book-of-Bill.jpeg' },
   ];
 };
+
 

@@ -8,22 +8,25 @@ const BooksDisplay = () => {
   useEffect(() => {
     const loadBooks = async () => {
       const data = await fetchBooks();
-      setBooks(data.slice(0, 9)); // Limit to 9 books for a 3x3 grid
+      setBooks(data); // Remove slicing to show all books
     };
     loadBooks();
   }, []);
 
   return (
-    <div className="books-grid">
-      {books.map((book) => (
-        <div key={book.id} className="book-card">
-          <img src={book.image} alt={book.title} className="book-image" />
-          <h3 className="book-title">{book.title}</h3>
-          <p className="book-author">{book.author}</p>
-        </div>
-      ))}
+    <div className="books-container">
+      <div className="books-grid">
+        {books.map((book) => (
+          <div key={book.id} className="book-card">
+            <img src={book.image} alt={book.title} className="book-image" />
+            <h3 className="book-title">{book.title}</h3>
+            <p className="book-author">{book.author}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default BooksDisplay;
+

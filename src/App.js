@@ -1,7 +1,8 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import { fetchBooks } from './api'; // Importing fetchBooks from the API index
-import BooksDisplay from './components/BooksDisplay';
+import BooksDisplay from './components/BooksDisplay'; // Import BooksDisplay component
+import './App.css'; // Import the App styles
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -15,27 +16,18 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Book List</h1>
-      <BooksDisplay />
+    <div className="App-header">
+      <h1 className="header">Book List</h1> {/* Apply header styles */}
+      {/* Pass books state as a prop to BooksDisplay */}
+      <BooksDisplay books={books} />
       {books.length > 0 ? (
-        books.map((book) => (
-          <div key={book.id}>
-            <img
-              src={`/images/${book.imageUrl}`}
-              alt={book.title}
-              style={{ width: "150px", height: "200px" }}
-            />
-            <h3>{book.title}</h3>
-            <p>{book.author}</p>
-          </div>
-        ))
+        <></>
       ) : (
         <p>No books available</p>
       )}
     </div>
   );
-};
+}
 
 export default App;
 

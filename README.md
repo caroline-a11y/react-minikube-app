@@ -68,3 +68,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Book App
+
+This application is a simple React-based book catalog showcasing a collection of books. It includes Docker support for containerization and deployment instructions for Minikube. The CI/CD pipeline is set up using GitHub Actions to automate the build and deployment processes.
+
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Build and Run Locally with Docker](#build-and-run-locally-with-docker)
+- [Deploy on Minikube](#deploy-on-minikube)
+- [CI/CD Pipeline with GitHub Actions](#ci/cd-pipeline-with-github-actions)
+- [Decisions, Assumptions, and Challenges](#decisions-assumptions-and-challenges)
+
+---
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-repo/book-app.git
+cd book-app
