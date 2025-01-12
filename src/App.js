@@ -1,14 +1,14 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import { fetchBooks } from './api';
+import { fetchBooks } from './api'; // Importing fetchBooks from the API index
 
 function App() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
-      const data = await fetchBooks();
-      setBooks(data);
+      const data = await fetchBooks(); // Fetch the books data
+      setBooks(data);  // Set the fetched data to the state
     };
     getBooks();
   }, []);
@@ -28,4 +28,5 @@ function App() {
 }
 
 export default App;
+
 
