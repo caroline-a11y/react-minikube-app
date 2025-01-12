@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .  # Path to your React project folder
+      dockerfile: Dockerfile.react  # Name of the Dockerfile for the React app
+    ports:
+      - "80:80"  # Expose React app on port 80
+    networks:
+      - app-network
+    depends_on:
+      - backend  # Ensure the backend is running before the frontend
+
+  backend:
+    build:
+      context: .  # Path to your Spring Boot project folder
+      dockerfile: Dockerfile.springboot  # Name of the Dockerfile for the Spring Boot app
+    ports:
+      - "8080:8080"  # Expose Spring Boot app on port 8080
+    networks:
+      - app-network
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://mongo:27017/mydb"  # MongoDB URI
+      MONGODB_HOST: "mongo"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Expose MongoDB on port 27017
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

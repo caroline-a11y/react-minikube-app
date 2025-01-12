@@ -1,0 +1,47 @@
+/* Grid layout for books */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between items */
+    padding: 20px;
+    background: black;
+  }
+  
+  /* Book card styling */
+  .book-card {
+    background: content-box;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+  }
+  
+  /* Image styling */
+  .book-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  /* Title styling */
+  .book-title {
+    font-size: 1.2rem;
+    color: red;
+    margin-top: 10px;
+  }
+  
+  /* Author styling */
+  .book-author {
+    font-size: 1rem;
+    color: whitesmoke;
+    margin-top: 5px;
+  }
+  

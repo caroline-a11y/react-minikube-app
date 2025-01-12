@@ -1,4 +1,4 @@
-package com.ncaroline.minikube.book;
+package com.ncaroline.minikube.book.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,14 +7,17 @@ public class Book {
     private String id;
     private String title;
     private String author;
+    private String imageUrl;
 
     // Constructors
     public Book() {}
 
-    public Book(String id, String title, String author) {
+    public Book(String id, String title, String author, String imageUrl) {
         this.id = id;
         this.title = title;
         this.author = author;
+        this.imageUrl = imageUrl;
+        
     }
 
     // Getters and Setters
@@ -40,5 +43,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

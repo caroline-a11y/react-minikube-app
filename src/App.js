@@ -1,6 +1,7 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import { fetchBooks } from './api'; // Importing fetchBooks from the API index
+import BooksDisplay from './components/BooksDisplay';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -14,18 +15,27 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold text-center my-4">Book List</h1>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id} className="my-2">
-            {book.title} by {book.author}
-          </li>
-        ))}
-      </ul>
+    <div>
+      <h1>Book List</h1>
+      <BooksDisplay />
+      {books.length > 0 ? (
+        books.map((book) => (
+          <div key={book.id}>
+            <img
+              src={`/images/${book.imageUrl}`}
+              alt={book.title}
+              style={{ width: "150px", height: "200px" }}
+            />
+            <h3>{book.title}</h3>
+            <p>{book.author}</p>
+          </div>
+        ))
+      ) : (
+        <p>No books available</p>
+      )}
     </div>
   );
-}
+};
 
 export default App;
 

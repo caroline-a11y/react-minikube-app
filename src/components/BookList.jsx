@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchBooks } from './path/to/fetchBooks'; // Replace with the correct path
+import { fetchBooks } from './api'; // Adjust the path to where the fetchBooks function is located
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -18,29 +18,26 @@ const BookList = () => {
   }, []);
 
   return (
-    <div>
-      {books.length > 0 ? (
-        books.map((book) => {
-          const imageUrl = `/images/${book.image}`;
-          console.log('Image URL:', imageUrl);
-          return (
-            <div key={book.id}>
-              <img
-                src={imageUrl}
-                alt={book.title}
-                style={{ width: '150px', height: '200px' }}
-                onError={(e) => (e.target.src = '/images/placeholder.png')}
-              />
-              <h3>{book.title}</h3>
-              <p>{book.author}</p>
-            </div>
-          );
-        })
-      ) : (
-        <p>No books available</p>
-      )}
+    // Set the background color of the entire page to black with red text
+    <div className="bg-black text-red-500 min-h-screen p-8">
+      <h1 className="text-align: center text-3xl mb-10">Book List</h1>
+      {/* Grid container for books */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {books.map((book) => (
+          <div key={book.id} className="bg-white text-black p-6 rounded-lg shadow-md">
+            <img 
+              src={book.image} 
+              alt={book.title} 
+              className="book-image mb-4 rounded-md w-full h-48 object-cover" 
+            />
+            <h3 className="book-title text-xl font-semibold">{book.title}</h3>
+            <p className="book-author text-lg">{book.author}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default BookList;
+
